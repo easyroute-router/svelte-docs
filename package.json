@@ -1,0 +1,22 @@
+{
+  "name": "svelte-easyroute-docs",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build:client": "vite build",
+    "build:ssr": "vite build --ssr ./src/App.ssr.svelte -c vite.config.ssr.js --target es2018",
+    "build": "npm run build:client && npm run build:ssr",
+    "preview:ssr": "node ./server.js"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.11",
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "markdown-it": "^12.1.0",
+    "nprogress": "^0.2.0",
+    "sass": "^1.35.2",
+    "svelte": "^3.37.0",
+    "uikit": "^3.7.0",
+    "vite": "^2.4.0"
+  }
+}
