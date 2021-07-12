@@ -4,20 +4,25 @@
 
 В каждом компоненте, обёрнутом в `<EasyrouteProvider>`,
 на любом уровне вложенности, вы можете использовать хук
-`useCurrentRoute`. Это имплементация паттерна Observable, так
-что вы можете "подписаться" на объект текущего маршрута. Вот так:
+`useCurrentRoute`. Он возвращает svelte-совместимое 
+хранилище, к которому можно обращаться через символ 
+`$`, или же подписаться как на observable:
 
 ```html
 <script>
     // Component.svelte
 
-    import useCurrentRoute from "svelte-easyroute/useCurrentRoute"
+    import useCurrentRoute from "@easyroute/svelte/useCurrentRoute"
     import { onDestroy } from "svelte"
-    
-    const unsubscribe = useCurrentRoute((currentRoute) => {
-        console.log(currentRoute)
+
+    // Через символ "$"
+    const currentRoute = useCurrentRoute()
+    console.log($currentRoute)
+
+    // Через метод "subscribe": не забудьте отписаться!
+    const unsubscribe = currentRoute.subscribe((route) => {
+        console.log(route)
     })
-    
     onDestroy(unsubscribe)
 </script>
 ```

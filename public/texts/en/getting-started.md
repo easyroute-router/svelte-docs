@@ -3,7 +3,10 @@
 ### Creating a router
 
 In order to create a router instance we need to specify routing mode and 
-matches between URL paths and rendered components:
+matches between URL paths and rendered components.
+
+The main router class and routing modes are imported from 
+`@easyroute/core` package (installs automatically).
 
 **router.js**
 ```javascript

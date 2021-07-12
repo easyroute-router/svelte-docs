@@ -4,21 +4,25 @@ route state.
 
 In any component wrapped with `<EasyrouteProvider>`,
 on any level of nesting, you can use `useCurrentRoute`
-hook. It is a custom implementation of Observable
-pattern, so you can "subscribe" to current route
-object. It goes like this:
+hook. It returns a svelte-compatible store that 
+can be accessed via the `$` symbol, or subscribed 
+as an observable:
 
 ```html
 <script>
     // Component.svelte
 
-    import useCurrentRoute from "svelte-easyroute/useCurrentRoute"
+    import useCurrentRoute from "@easyroute/svelte/useCurrentRoute"
     import { onDestroy } from "svelte"
     
-    const unsubscribe = useCurrentRoute((currentRoute) => {
-        console.log(currentRoute)
-    })
+    // Via "$" symbol
+    const currentRoute = useCurrentRoute()
+    console.log($currentRoute)
     
+    // Subscribe-way: don't forget to unsubscribe!
+    const unsubscribe = currentRoute.subscribe((route) => {
+        console.log(route)
+    })
     onDestroy(unsubscribe)
 </script>
 ```

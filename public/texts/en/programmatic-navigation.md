@@ -10,7 +10,7 @@ is supported
 ```javascript
 // SomeComponent.svelte
 <script>
-    export let router;
+    import { router } from './router.js';
     router.push('/home');
 </script>
 ```

@@ -4,8 +4,10 @@ Svelte Easyroute has a third router mode - "silent".
 You can use it if you don't want to change URL in 
 address bar. Define your routes as usual:
 ```javascript
+import silentMode from '@easyroute/core/silent-mode'
+
 export var router = new Router({
-mode: "silent",
+mode: silentMode,
 routes: [
     ...
 ]

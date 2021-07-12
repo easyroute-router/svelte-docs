@@ -5,9 +5,14 @@
 Для создания экземпляра роутера, необходимо указать его режим работы и
 сопоставления между путями и соответствующими этим путям компопонентами:
 
+Главный класс роутера, а также режимы его работы можно 
+импортировать из пакета `@easyroute/core` (устанавливается автоматически).
+
 **router.js**
 ```javascript
-import Router from 'svelte-easyroute'
+import Router from '@easyroute/core'
+import hashMode from '@easyroute/core/hash-mode'
+
 import Index from './pages/Index.svelte'
 import About from './pages/About.svelte'
 
@@ -36,9 +41,9 @@ export const router = new Router({
 ```
 
 Ключ `mode` позволяет вам выбрать режим навигации:
-* `hash`: используется всё, что следует за знаком `#` в URL (`window.location.hash`)
-* `history`: основан на [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
-* `silent`: тихий режим навигации без обновления URL в строке браузера
+* `@easyroute/core/hash-mode`: используется всё, что следует за знаком `#` в URL (`window.location.hash`)
+* `@easyroute/core/history-mode`: основан на [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
+* `@easyroute/core/silent-mode`: тихий режим навигации без обновления URL в строке браузера
 
 ### Добавление маршрутов
 Ключ `routes` - перечисляет массив зарегистрированных маршрутов.
@@ -52,7 +57,7 @@ export const router = new Router({
 **App.svelte**
 ```svelte
 <script>
-  import { EasyrouteProvider } from 'svelte-easyroute'
+  import { EasyrouteProvider } from '@easyroute/svelte'
   import { router } from './router.js'
 </script>
 
@@ -75,7 +80,7 @@ export const router = new Router({
 **Layout.svelte**
 ```svelte
 <script>
-  import { RouterOutlet, RouterLink } from 'svelte-easyroute'
+  import { RouterOutlet, RouterLink } from '@easyroute/svelte'
 </script>
 
 <main>

@@ -12,12 +12,6 @@ export default defineConfig({
       hydratable: true
     }
   })],
-  resolve: {
-    alias: {
-      '@easyroute/svelte': path.resolve('../monorepo/packages/svelte'),
-      '@easyroute/core': path.resolve('../monorepo/packages/core')
-    }
-  },
   build: {
     outDir: 'dist/server'
   }

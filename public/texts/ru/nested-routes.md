@@ -24,7 +24,7 @@ routes:[
 ```javascript
 // Index.svelte
 <script>
-import { RouterOutlet } from 'svelte-easyroute'
+import { RouterOutlet } from '@easyroute/svelte'
 </script>
 
 <RouterOutlet />

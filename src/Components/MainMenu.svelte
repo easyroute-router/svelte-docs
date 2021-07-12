@@ -1,19 +1,19 @@
 <script>
     import { RouterLink } from '@easyroute/svelte'
     import useCurrentRoute from '@easyroute/svelte/useCurrentRoute'
-    import { onDestroy } from 'svelte'
-    import { langStore } from '../Store'
+    import { langStore as lang } from '../Store'
     import menuData from './menuData'
-    let routePath = ''
 
-    const unsubscribe = useCurrentRoute((route) => {
-        routePath = route.fullPath
-    })
-
+    const currentRoute = useCurrentRoute()
     let menu = {}
     let language = 'en'
 
-    langStore.subscribe(lang => {
+    function withParams(url) {
+        if (url.indexOf('?') === -1) return `${url}?lang=${language}`
+        else return `${url}&lang=${language}`
+    }
+
+    function changeLang(lang) {
         if (lang === 'ru' || lang === 'en') {
             menu = menuData[lang]
             language = lang
@@ -21,14 +21,9 @@
             menu = menuData['en']
             language = 'en'
         }
-    })
-
-    function withParams(url) {
-        if (url.indexOf('?') === -1) return `${url}?lang=${language}`
-        else return `${url}&lang=${language}`
     }
 
-    onDestroy(unsubscribe)
+    $: changeLang($lang)
 </script>
 
 <ul class="uk-nav uk-nav-default">
@@ -39,7 +34,7 @@
         {:else if item.title === 'divider'}
             <li class="uk-nav-divider"></li>
         {:else}
-            <li class:uk-active={ routePath.includes(item.url) }>
+            <li class:uk-active={ $currentRoute.fullPath.includes(item.url) }>
                 {#if item.url.includes('http')}
                     <a href="{item.url}" target="_blank">
                         {@html item.title}

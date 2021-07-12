@@ -4,11 +4,13 @@
 использовать его, если не хотите менять URL в строке 
 браузера. 
 ```javascript
+import silentMode from '@easyroute/core/silent-mode'
+
 export var router = new Router({
-mode: "silent",
-routes: [
-    ...
-]
+    mode: silentMode,
+    routes: [
+        ...
+    ]
 })
 ```
 У этого режима есть своя история маршрутов. Используйте 

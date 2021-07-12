@@ -2,7 +2,7 @@
 
 Через npm: 
 ```bash
-npm install svelte-easyroute@latest
+npm install @easyroute/svelte
 ```
 
 После этого вы можете использовать экспортируемый по умолчанию класс.

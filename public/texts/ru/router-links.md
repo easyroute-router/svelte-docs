@@ -4,7 +4,7 @@
 компонент `RouterLink`.
 
 ```javascript
-import { RouterLink } from 'svelte-easyroute'
+import { RouterLink } from '@easyroute/svelte'
 </script>
 
 <RouterLink to={'/route'} />

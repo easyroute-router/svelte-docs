@@ -18,11 +18,11 @@ SSR. Компилятор Svelte умеет создавать такой код
 затем вызвать специальный метод регистрации:
 
 ```html
-<script context="module">
+<script context = "module">
 import router from './Router/index.ssr'
-import registerRouterSSR from 'svelte-easyroute/ssr/registerRouterSSR'
+import registerRouterSSR from '@easyroute/svelte/ssr/registerRouterSSR'
 
-registerRouterSSR(router)
+registerRouterSSR (router)
 </script>
 ```
 

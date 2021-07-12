@@ -3,7 +3,7 @@
 To add link to the another route you can use `RouterLink` component.
 
 ```javascript
-import { RouterLink } from 'svelte-easyroute'
+import { RouterLink } from '@easyroute/svelte';
 </script>
 
 <RouterLink to={'/route'} />
