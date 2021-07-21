@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const fs = require('fs')
 const demoApp = require('./dist/server/App.ssr').default
-const renderer = require('../monorepo/packages/svelte/ssr')()
+const renderer = require('@easyroute/svelte/ssr')()
 
 app.use('/assets', express.static(__dirname + '/dist/client/assets'))
 app.use('/texts', express.static(__dirname + '/dist/client/texts'))
