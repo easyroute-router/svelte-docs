@@ -21,6 +21,6 @@
     "vite": "^2.4.0"
   },
   "dependencies": {
-    "@easyroute/svelte": "^3.2.0-alpha.2"
+    "@easyroute/svelte": "^3.2.0"
   }
 }

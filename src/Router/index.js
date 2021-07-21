@@ -29,7 +29,7 @@ const routes = [
           test: 'test'
         },
         beforeEnter: async (to, from, next) => {
-          console.log(`[beforeEnter hook]: fetching page data`)
+          console.log(`[transitionOut hook]: fetching page data`)
           const { slug } = to.params
           try {
             to.meta.pageText = await fetchSlugMarkdown(slug)

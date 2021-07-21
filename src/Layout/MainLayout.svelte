@@ -41,7 +41,7 @@
                         > RU
                     </label>
                     <span style="color:lightgray; margin-right: 1rem">v{ pkg.version }</span>
-                    <a class="github-button" href="https://github.com/lyohaplotinka/svelte-easyroute" data-size="large" data-show-count="true" aria-label="Star lyohaplotinka/svelte-easyroute on GitHub">GitHub</a>
+                    <a class="github-button" href="https://github.com/easyroute-router/easyroute/tree/main/packages/svelte" data-size="large" aria-label="Star Easyroute on GitHub">GitHub</a>
                 </div>
             </div>
         </div>

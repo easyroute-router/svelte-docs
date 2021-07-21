@@ -1,32 +1,27 @@
 <script>
     import useCurrentRoute from '@easyroute/svelte/useCurrentRoute'
-    import { delay } from '@easyroute/core/utils/delay'
     import MarkdownIt from 'markdown-it'
-    import { langStore } from '../Store'
-    import { fetchSlugMarkdown } from '../Router/utils'
 
-    const md = new MarkdownIt()
+    export let router;
+
     const currentRoute = useCurrentRoute()
-    let pageText = $currentRoute.meta.pageText
+    const md = new MarkdownIt()
+    let content = ''
+    let timerDelay = 0
 
-    langStore.subscribe(async (lang) => {
-        if (lang !== 'en' && lang !== 'ru') return
-        const { slug } = $currentRoute.params
-        slug && fetchText(slug, 0)
-    })
-
-    async function fetchText(slug, delayMs = 210) {
-        if (!slug) return
-        await delay(delayMs)
-        pageText = await fetchSlugMarkdown(slug)
+    function renderText(meta) {
+        if (!meta.pageText) return
+        setTimeout(() => {
+            content = md.render(meta.pageText)
+            timerDelay = 200
+        }, timerDelay)
     }
 
-    $: renderedContent = md.render(pageText || '')
-    $: fetchText($currentRoute.params.slug)
+    $: renderText($currentRoute.meta)
 </script>
 
 <div class="page-content">
     <article>
-        {@html renderedContent}
+        {@html content}
     </article>
 </div>
