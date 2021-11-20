@@ -11,3 +11,14 @@
     router.push('/home');
 </script>
 ```
+
+Если вы используете режим `history`, то вы можете заменить 
+текущую запись в истории при помощи метода `replace`:
+
+```javascript
+// SomeComponent.svelte
+<script>
+    import { router } from './router.js';
+    router.replace('/home');
+</script>
+```

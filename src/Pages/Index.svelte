@@ -1,5 +1,11 @@
 <script>
+    import {RouterLink} from "@easyroute/svelte";
     import { langStore } from '../Store'
+    import router from "../Router";
+
+    function declarativeReplace() {
+        router.replace('/page/programmatic-navigation?lang=en')
+    }
 </script>
 
 {#if $langStore === 'en'}
@@ -46,6 +52,12 @@
         </li>
         <li>
             Svelte + TypeScript support <code>v3.1.1+</code>
+        </li>
+        <li>
+            <RouterLink to={'/page/programmatic-navigation?lang=en'} replace={true}>Declarative</RouterLink>
+            and
+            <span style="font-weight: 800; cursor: pointer;" on:click={declarativeReplace}>programmatic</span>
+            replace route in history mode <code>v3.2.1+</code>
         </li>
     </ul>
 
@@ -108,6 +120,12 @@
             </li>
             <li>
                 Поддержка Svelte + TypeScript <code>v3.1.1+</code>
+            </li>
+            <li>
+                <RouterLink to={'/page/programmatic-navigation?lang=en'} replace={true}>Декларативная</RouterLink>
+                и
+                <span style="font-weight: 800; cursor: pointer;" on:click={declarativeReplace}>программная</span>
+                замена маршута в режиме history <code>v3.2.1+</code>
             </li>
         </ul>
 
